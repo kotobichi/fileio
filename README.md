@@ -1,6 +1,6 @@
 # File IO
 
-a single header library for reading files.
+I often just need to read and parse a lot data off of files within the same working directory, specially when just prototyping something, I just want something real quick and fast, and so I often just copy-paste functions around projects, but now I decided to just make it as a header file. Is it better? idk, probably not, maybe if had more utility functions it would make much more sence.
 
 ## Use
 
@@ -16,8 +16,6 @@ size_t length;
 FIO_read("your_mom.obj", &content, &length);
 ```
 
-test it out:
-
 ``` c
 printf("File size: %zu bytes\n", length);
 printf("Content:\n%s\n", content);
@@ -30,13 +28,11 @@ Content: is thick
 ```
 
 remember to free mem:
-
 ``` c 
 free(content); 
 ```
 
 here's what `FIO_read()` can return:
-
 ``` c
 typedef enum {
     FIO_SUCCESS,
@@ -49,7 +45,6 @@ typedef enum {
 ```
 
 handle errors properly:
-
 ``` c
 FIO_status_e status = FIO_read("your_mom.obj", &content, &length);
 switch (status) {
